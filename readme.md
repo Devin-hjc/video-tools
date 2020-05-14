@@ -5,7 +5,7 @@
 
 安装方法：  
 ==
-    composer require smalls/video-tools
+    composer require devin/video-tools
  ********
  ***PHP>=5.6*
  
