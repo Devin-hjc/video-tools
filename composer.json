@@ -1,16 +1,16 @@
 {
-    "name": "smalls/video-tools",
+    "name": "devin/video-tools",
     "description": "短视频的拓展包，集成各大短视频的去水印功能",
     "type": "library",
     "keywords": [
-        "smalls",
+        "Devin-hjc",
         "video-tools"
     ],
     "license": "MIT",
     "authors": [
         {
             "name": "Ming",
-            "email": "qiumingan98@qq.com"
+            "email": "3226136347@qq.com"
         }
     ],
     "require": {
