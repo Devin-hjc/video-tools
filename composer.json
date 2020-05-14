@@ -1,9 +1,9 @@
 {
-    "name": "devin/video-tools",
+    "name": "Devin/video-tools",
     "description": "短视频的拓展包，集成各大短视频的去水印功能",
     "type": "library",
     "keywords": [
-        "Devin-hjc",
+        "Devin",
         "video-tools"
     ],
     "license": "MIT",
