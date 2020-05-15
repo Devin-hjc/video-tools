@@ -6,14 +6,16 @@
  * Date：2020/4/26 - 22:15
  **/
 
-require './vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use Smalls\VideoTools\VideoManager;
 
 //$res = VideoManager::DouYin()->start("https://v.douyin.com/w6EH9s/");
-
+$res = "";
 try {
-    $res = VideoManager::KuaiShou()->start("https://v.kuaishou.com/2RbSva");
+    //$res = VideoManager::KuaiShou()->start("https://v.kuaishou.com/2RbSva");
+    print_r("aaaa");
+    $res = VideoManager::WeiBo()->start("https://m.weibo.cn/6450726845/4504657860740354");
 } catch (\Smalls\VideoTools\Exception\ErrorVideoException $e) {
     $e->getTraceAsString();
 }

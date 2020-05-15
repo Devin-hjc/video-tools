@@ -5,7 +5,7 @@ integrated：DouYin、HuoShan、TouTiao、KuaiShou、LiVideo、MeiPai、MoMo、P
 
 install：  
 ==
-    composer require smalls/video-tools
+    composer require devin/video-tools
  ********
  ***PHP>=5.6*
  
