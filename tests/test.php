@@ -14,11 +14,13 @@ use Smalls\VideoTools\VideoManager;
 $res = "";
 try {
     //$res = VideoManager::KuaiShou()->start("https://v.kuaishou.com/2RbSva");
-    print_r("aaaa");
-    $res = VideoManager::WeiBo()->start("https://m.weibo.cn/6450726845/4504657860740354");
+    $res = VideoManager::WeiBo()->start("https://m.weibo.cn/5992630941/4503335431250037");
+    print_r($res);
 } catch (\Smalls\VideoTools\Exception\ErrorVideoException $e) {
     $e->getTraceAsString();
 }
+//
+//$res = VideoManager::WeiBo()->start("https://m.weibo.cn/5992630941/4503335431250037");
 //
 //$res = VideoManager::HuoShan()->start("https://share.huoshan.com/hotsoon/s/kcU0XOnSO78/");
 //
@@ -46,6 +48,6 @@ try {
 //
 //$res = VideoManager::XiaoKaXiu()->start("https://mobile.xiaokaxiu.com/video?id=6522164847705071616");
 
-var_dump($res);
+//var_dump($res);
 
 

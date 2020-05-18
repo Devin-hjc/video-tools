@@ -31,35 +31,43 @@ class WeiBo extends Base implements IVideo
             throw new ErrorVideoException("{WeiBo} the URL must contain one of the domain names m.weibo.cn to continue execution");
         }
 
-        preg_match('/([0-9]+)$', $url, $match);
+        preg_match('/([0-9]+)$/i', $url, $match);
         if ($this->checkEmptyMatch($match)) {
-            throw new ErrorVideoException("{TouTiao} url parsing failed");
+            throw new ErrorVideoException("{WeiBo} url parsing failed");
         }
 
         $getContentUrl = 'https://m.weibo.cn/status/' .$match[1];
 
-        $contents = $this->get($url, [], [
+        // $contents = $this->get($getContentUrl, [], [
+        //     'User-Agent' => self::ANDROID_USER_AGENT
+        // ]);
+        $contents = $this->get($getContentUrl, [], [
+            //'Referer' => $getContentUrl,
             'User-Agent' => self::ANDROID_USER_AGENT
         ]);
 
-        print_r($contents);
+        //print("ss".$contents);
+        // $aa = htmlentities($contents ,ENT_QUOTES,"UTF-8");
+        // print("ss".$aa);
         $match = null;
-        preg_match('/data-pagedata="(.*?)"/i', $contents, $match);
+        preg_match('/render_data = (\[{[\S\s]+)\[0\]/i', $contents, $match);
+        //preg_match('/stream_url":"(.+?)"/i', $contents, $match);
+
         if ($this->checkEmptyMatch($match)) {
-            throw new ErrorVideoException("{KuaiShou} contents parsing failed");
+            throw new ErrorVideoException("{WeiBo} contents parsing failed");
         }
 
-        $contents = htmlspecialchars_decode($match[1]);
-        $data = json_decode($contents, true);
+        //$contents = htmlspecialchars_decode($match[1]);
+        $data = json_decode($match[1], true)[0];
 
         return $this->returnData(
             $url,
-            isset($data['user']['name']) ? $data['user']['name'] : '',
-            isset($data['user']['avatar']) ? $data['user']['avatar'] : '',
-            isset($data['video']['caption']) ? $data['video']['caption'] : '',
-            isset($data['video']['poster']) ? $data['video']['poster'] : '',
-            isset($data['video']['srcNoMark']) ? $data['video']['srcNoMark'] : '',
-            isset($data['video']['type']) ? $data['video']['type'] : 'video'
+            isset($data["status"]["status_title"]) ? $data["status"]["status_title"] : '',
+            isset($data["status"]["user"]["screen_name"]) ? $data["status"]["user"]["screen_name"] : '',
+            isset($data["status"]["user"]["avatar_hd"]) ? $data["status"]["user"]["avatar_hd"] : '',
+            isset($data["status"]["page_info"]["title"]) ? $data["status"]["page_info"]["title"] : '',
+            isset($data["status"]["page_info"]["media_info"]["stream_url"]) ? $data["status"]["page_info"]["media_info"]["stream_url"] : '',
+            'video'
         );
     }
 }
