@@ -46,6 +46,7 @@ use Smalls\VideoTools\Tools\WeiBo;
  * @method static ShuaBao ShuaBao(...$params)
  * @method static XiaoKaXiu XiaoKaXiu(...$params)
  * @method static WeiBo WeiBo(...$params)
+ * 
  */
 class VideoManager
 {

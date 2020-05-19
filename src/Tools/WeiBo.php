@@ -46,9 +46,6 @@ class WeiBo extends Base implements IVideo
             'User-Agent' => self::ANDROID_USER_AGENT
         ]);
 
-        //print("ss".$contents);
-        // $aa = htmlentities($contents ,ENT_QUOTES,"UTF-8");
-        // print("ss".$aa);
         $match = null;
         preg_match('/render_data = (\[{[\S\s]+)\[0\]/i', $contents, $match);
         //preg_match('/stream_url":"(.+?)"/i', $contents, $match);
