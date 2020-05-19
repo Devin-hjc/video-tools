@@ -62,7 +62,7 @@ class WeiBo extends Base implements IVideo
             isset($data["status"]["status_title"]) ? $data["status"]["status_title"] : '',
             isset($data["status"]["user"]["screen_name"]) ? $data["status"]["user"]["screen_name"] : '',
             isset($data["status"]["user"]["avatar_hd"]) ? $data["status"]["user"]["avatar_hd"] : '',
-            isset($data["status"]["page_info"]["title"]) ? $data["status"]["page_info"]["title"] : '',
+            isset($data["status"]["page_info"]["page_pic"]["url"]) ? $data["status"]["page_info"]["page_pic"]["url"] : '',
             isset($data["status"]["page_info"]["media_info"]["stream_url"]) ? $data["status"]["page_info"]["media_info"]["stream_url"] : '',
             'video'
         );
