@@ -1,32 +1,74 @@
-# 短视频去水印
-集成了：抖音、火山、头条、快手、梨视频、美拍、陌陌、皮皮搞笑、皮皮虾、全民搞笑、刷宝、微视、小咖秀、最右等等。其他如果需要对接的可以issues
+<h1>Smalls</h1>
+<p>
+<a href="https://packagist.org/packages/smalls/video-tools"><img src="https://poser.pugx.org/smalls/video-tools/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/smalls/video-tools"><img src="https://poser.pugx.org/smalls/video-tools/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/smalls/video-tools"><img src="https://poser.pugx.org/smalls/video-tools/v/unstable" alt="Latest Unstable Version"></a>
+<a href="https://packagist.org/packages/smalls/video-tools"><img src="https://poser.pugx.org/smalls/video-tools/license" alt="License"></a>
+</p>
 
-2020-04-29：第一个版本
-2020-05-18：添加微博
+## 短视频去水印
+集成了：抖.音、火.山、头.条、快.手、梨.视.频、美.拍、陌.陌、皮.皮.搞.笑、皮.皮.虾、全.民.搞.笑、刷.宝、微.视、小.咖.秀、最.右、B.站、微.博、秒.拍等等。其他如果需要对接的可以issues
 
-安装方法：  
-==
-    composer require devin/video-tools
+* 技术交流群：1055772768 - 进群密码：smalls
+* 我们已经对接了19个平台的视频提取（部分视频是有水印的，没办法做到无水印）
+
+===============
+* 2020-06-24：更新抖音提取视频
+* 2020-06-14：添加秒拍提取视频，修复美拍提取视频失败
+* 2020-06-13：添加微博提取视频（远古视频有水印）
+* 2020-06-10：新加代理功能，有点不稳定，有什么好的建议可以issues给我
+* 2020-06-10：添加url-validator配置类
+* 2020-06-09：全部优化了一下更加面向对象，新加B.站解析视频
+* 2020-04-29：第一个版本
+
+## 安装
+
+~~~
+composer require smalls/video-tools
+~~~
+
+如果需要更新扩展包使用
+~~~
+composer update smalls/video-tools
+~~~
  ********
- ***PHP>=5.6*
+> 运行环境要求PHP7.0+
  
  VideoManager使用文档：(可以参考tests/test.php)
  ==
-    抖音：VideoManager::DouYin()->start($url);
-    快手：VideoManager::KuaiShou()->start($url);
-    火山：VideoManager::HuoShan()->start($url);
-    头条：VideoManager::TouTiao()->start($url);
-    快手：VideoManager::XiGua()->start($url);
-    快手：VideoManager::WeiShi()->start($url);
-    皮皮虾：VideoManager::PiPiXia()->start($url);
-    最右：VideoManager::ZuiYou()->start($url);
-    美拍：VideoManager::MeiPai()->start($url);
-    梨视频：VideoManager::LiVideo()->start($url);
-    全民搞笑：VideoManager::QuanMingGaoXiao()->start($url);
-    皮皮搞笑：VideoManager::PiPiGaoXiao()->start($url);
-    陌陌：VideoManager::MoMo()->start($url);
-    刷宝：VideoManager::ShuaBao()->start($url);
-    小咖秀：VideoManager::XiaoKaXiu()->start($url);
+    抖.音：VideoManager::DouYin()->start($url);
+    快.手：VideoManager::KuaiShou()->start($url);
+    火.山：VideoManager::HuoShan()->start($url);
+    头.条：VideoManager::TouTiao()->start($url);
+    快.手：VideoManager::XiGua()->start($url);
+    快.手：VideoManager::WeiShi()->start($url);
+    皮.皮.虾：VideoManager::PiPiXia()->start($url);
+    最.右：VideoManager::ZuiYou()->start($url);
+    美.拍：VideoManager::MeiPai()->start($url);
+    梨.视.频：VideoManager::LiVideo()->start($url);
+    全.民.搞.笑：VideoManager::QuanMingGaoXiao()->start($url);
+    皮.皮.搞.笑：VideoManager::PiPiGaoXiao()->start($url);
+    陌.陌：VideoManager::MoMo()->start($url);
+    刷.宝：VideoManager::ShuaBao()->start($url);
+    小.咖.秀：VideoManager::XiaoKaXiu()->start($url);
+    B.站：VideoManager::Bili()->start($url);
+    微.博：VideoManager::WeiBo()->start($url);
+    微.博短视频：VideoManager::WeiBo()->newVideoStart($url);
+    秒.拍：VideoManager::MiaoPai()->start($url);
+    B.站.指定参数：VideoManager::Bili()->setUrl($url)->setQuality(BiliQualityType::LEVEL_2)->execution();
+   自定义URL配置文件：url-validator
+   --
+   ````
+    例如抖.音：$res = VideoManager::KuaiShou([
+              'proxy_whitelist' => ['kuaishou'],//白名单，需要提交类名，全部小写
+              'proxy' => '$ip:$port',
+              'url_validator' => [
+                    这边参考config/url-validator.php
+              ]
+          ])->start($url);
+    可以参考config/url-validator.php的格式用参数传递，如果不指定则使用默认的
+    不会怎么编写全部使用默认也是可以的
+   ````
    返回成功：array
    --
    ````

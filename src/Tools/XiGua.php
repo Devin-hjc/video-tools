@@ -5,6 +5,8 @@ namespace Smalls\VideoTools\Tools;
 
 use Smalls\VideoTools\Exception\ErrorVideoException;
 use Smalls\VideoTools\Interfaces\IVideo;
+use Smalls\VideoTools\Logic\TouTiaoLogic;
+use Smalls\VideoTools\Utils\CommonUtil;
 
 /**
  * Created By 1
@@ -12,28 +14,25 @@ use Smalls\VideoTools\Interfaces\IVideo;
  * Email：smalls0098@gmail.com
  * Date：2020/4/27 - 14:32
  **/
-class XiGua extends TouTiao implements IVideo
+class XiGua extends Base implements IVideo
 {
 
     /**
-     * 更新时间：2020/4/30
+     * 更新时间：2020/6/10
      * @param string $url
      * @return array
      * @throws ErrorVideoException
      */
     public function start(string $url): array
     {
-        if (empty($url)) {
-            throw new ErrorVideoException("{XiGua} url cannot be empty");
-        }
-        if (strpos($url, "xigua.com") == false) {
-            throw new ErrorVideoException("{XiGua} the URL must contain one of the domain names xigua.com to continue execution");
-        }
+        $this->logic = new TouTiaoLogic($url, $this->urlValidator->get('xigua'), $this->config);
+        $this->logic->checkUrlHasTrue();
         preg_match('/group\/([0-9]+)\/?/i', $url, $match);
-        if ($this->checkEmptyMatch($match)) {
-            throw new ErrorVideoException("{XiGua} url parsing failed");
+        if (CommonUtil::checkEmptyMatch($match)) {
+            throw new ErrorVideoException("item_id获取失败");
         }
-
-        return $this->getContents($url, $match[1]);
+        $this->logic->setContents($match[1]);
+        return $this->exportData();
     }
+
 }
