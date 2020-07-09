@@ -23,6 +23,7 @@ use Smalls\VideoTools\Tools\WeiShi;
 use Smalls\VideoTools\Tools\XiaoKaXiu;
 use Smalls\VideoTools\Tools\XiGua;
 use Smalls\VideoTools\Tools\ZuiYou;
+use Smalls\VideoTools\Tools\TaoBao;
 
 /**
  * Created By 1
@@ -50,6 +51,7 @@ use Smalls\VideoTools\Tools\ZuiYou;
  * @method static Bili Bili(...$params)
  * @method static WeiBo WeiBo(...$params)
  * @method static MiaoPai MiaoPai(...$params)
+ * @method static TaoBao TaoBao(...$params)
  */
 class VideoManager
 {

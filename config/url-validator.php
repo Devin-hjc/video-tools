@@ -20,4 +20,5 @@ return [
     'weibo' => ['weibo.com','weibo.cn'],
     'newweibo' => ['video.weibo.com/show'],
     'miaopai' => ['miaopai.com'],
+    'taobao' => ['tb.cn','tmall.com','taobao.com']
 ];

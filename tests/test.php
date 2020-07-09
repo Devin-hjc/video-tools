@@ -12,15 +12,16 @@ use Smalls\VideoTools\Enumerates\BiliQualityType;
 use Smalls\VideoTools\VideoManager;
 
 $res = '';
-$res = VideoManager::DouYin()->start("https://v.douyin.com/JeoLRe4/");
-var_dump($res);
-//$res = VideoManager::KuaiShou([
-////    'proxy_whitelist' => ['kuaishou'],
-////    'proxy' => '221.122.91.75:10286',
-//    'kuaishou_cookie' => 'did=web_a6a7e3e1a4014bc695f672424895d4b1; didv=1591109751000; clientid=3; client_key=65890b29; Hm_lvt_86a27b7db2c5c0ae37fee4a8a35033ee=1591109757,1591970427; kuaishou.live.bfb1s=9b8f70844293bed778aade6e0a8f9942; userId=51611533; userId=51611533; kuaishou.live.web_st=ChRrdWFpc2hvdS5saXZlLndlYi5zdBKgAaCjxgTeOKOKuBZb5DHiOZCRd47RetP6Uq7ja8Qc0K8YUzu_Dnd2zXqKdQxBk7WoqxC4hPA2XrlP9-gKRy0E7pJXWIVoNcoPLqHZ20r8XKIv-NW8dXdxmwAefMMQzOahP0M37oaBe5ryNzgZi84YdjOgyW-NBqbGSRqtr4yp7DONw_5N8SaKff4SUwt5iBh5K6h1rekzLxA7KnJNQXRFsroaEhq2DZZ7DUHSmXUzdRyAf3O3USIgqzysiMZcXUjuioTj7guBkES98eKxDNMXR44vGILtMMMoBTAB; kuaishou.live.web_ph=ea1aa21b1f3b1305776dd0eebc926ba94a3e'
-//])->start("https://v.kuaishou.com/2RbSva");
-//$res = VideoManager::KuaiShou()->start("https://v.kuaishou.com/2RbSva");
-//var_dump($res);
+// $res = VideoManager::DouYin()->start("https://v.douyin.com/JeoLRe4/");
+// var_dump($res);
+$res = VideoManager::KuaiShou([
+//    'proxy_whitelist' => ['kuaishou'],
+//    'proxy' => '221.122.91.75:10286',
+//   'kuaishou_cookie' => 'did=web_a6a7e3e1a4014bc695f672424895d4b1; didv=1591109751000; clientid=3; client_key=65890b29; Hm_lvt_86a27b7db2c5c0ae37fee4a8a35033ee=1591109757,1591970427; kuaishou.live.bfb1s=9b8f70844293bed778aade6e0a8f9942; userId=51611533; userId=51611533; kuaishou.live.web_st=ChRrdWFpc2hvdS5saXZlLndlYi5zdBKgAaCjxgTeOKOKuBZb5DHiOZCRd47RetP6Uq7ja8Qc0K8YUzu_Dnd2zXqKdQxBk7WoqxC4hPA2XrlP9-gKRy0E7pJXWIVoNcoPLqHZ20r8XKIv-NW8dXdxmwAefMMQzOahP0M37oaBe5ryNzgZi84YdjOgyW-NBqbGSRqtr4yp7DONw_5N8SaKff4SUwt5iBh5K6h1rekzLxA7KnJNQXRFsroaEhq2DZZ7DUHSmXUzdRyAf3O3USIgqzysiMZcXUjuioTj7guBkES98eKxDNMXR44vGILtMMMoBTAB; kuaishou.live.web_ph=ea1aa21b1f3b1305776dd0eebc926ba94a3e'
+   'kuaishou_cookie' => 'did=web_58fc2d3365ad44b30a75ec8a3d2aeb09; didv=1588832253000; clientid=3; client_key=65890b29; Hm_lvt_86a27b7db2c5c0ae37fee4a8a35033ee=1593659938; kuaishou.live.bfb1s=7206d814e5c089a58c910ed8bf52ace5;'
+])->start("https://v.kuaishou.com/7GA6K1");
+ //$res = VideoManager::KuaiShou()->start("https://v.kuaishou.com/5kOgX6");
+ var_dump($res);
 //$res = VideoManager::HuoShan()->start("https://share.huoshan.com/hotsoon/s/kcU0XOnSO78/");
 //var_dump($res['video_url']);
 //$res = VideoManager::TouTiao()->start("https://m.toutiaoimg.cn/a6818537223466516995/?app=news_article&is_hit_share_recommend=0");
@@ -55,3 +56,6 @@ var_dump($res);
 //var_dump($res['video_url']);
 //$res = VideoManager::MiaoPai()->start("http://www.miaopai.com/show/SSDlgDXVOwOqIEFkuzmTtap-~2T-HUwI.htm");
 //var_dump($res['video_url']);
+
+// $res = VideoManager::TaoBao()->start("https://m.tb.cn/h.VpxCyPE?sm=a5f338");
+// var_dump($res);
